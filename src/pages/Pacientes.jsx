@@ -1,11 +1,16 @@
+import { useState } from 'react'
 import { Plus, MoreVertical } from 'lucide-react'
 import { pacientes } from '../mockData'
+import { listarPacientesPublicos } from '../Areapublica/agendamentoApi'
 
 function iniciais(nome) {
   return nome.split(' ').slice(0, 2).map((n) => n[0]).join('')
 }
 
 export default function Pacientes({ onAbrirPaciente }) {
+  // Pacientes de exemplo + clientes da área pública que já tiveram agendamento confirmado
+  const [todos] = useState(() => [...pacientes, ...listarPacientesPublicos()])
+
   return (
     <div className="page">
       <div className="page-header">
@@ -25,7 +30,7 @@ export default function Pacientes({ onAbrirPaciente }) {
             </tr>
           </thead>
           <tbody>
-            {pacientes.map((p) => (
+            {todos.map((p) => (
               <tr key={p.id} className="clickable" onClick={() => onAbrirPaciente(p)}>
                 <td>
                   <div className="person-cell">

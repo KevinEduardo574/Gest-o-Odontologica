@@ -11,9 +11,9 @@ const links = [
 ]
 
 export default function Sidebar({ page, onNavigate }) {
-  // Prontuário é acessado a partir da lista de pacientes, mas mantém o item
-  // de menu "Pacientes" destacado quando estamos vendo um prontuário.
-  const activeKey = page === 'prontuario' ? 'pacientes' : page
+  // Prontuário é acessado a partir da lista de pacientes. Quando estamos vendo
+  // um prontuário, o item de menu "Prontuários" fica destacado.
+  const activeKey = page === 'prontuario' ? 'prontuarios' : page
 
   return (
     <aside className="sidebar">
@@ -26,7 +26,7 @@ export default function Sidebar({ page, onNavigate }) {
           <button
             key={key}
             className={'sidebar-link' + (activeKey === key ? ' active' : '')}
-            onClick={() => onNavigate(key === 'prontuarios' ? 'pacientes' : key)}
+            onClick={() => onNavigate(key === 'prontuarios' ? 'prontuario' : key)}
           >
             <Icon size={17} />
             {label}

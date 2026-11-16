@@ -1,0 +1,99 @@
+/* Estilos extras do Login: só o que é novo (erros, avisos, checklist e botão de olho).
+   O restante da tela continua usando as classes que já existem no index.css. */
+
+/* Mensagem de erro embaixo do campo */
+.login-erro {
+  margin: 6px 0 0;
+  color: #f87171;
+  font-size: 0.8rem;
+}
+
+.login-box .field input[aria-invalid='true'] {
+  border-color: #f87171;
+}
+
+/* Campo de senha com o botão de mostrar/ocultar */
+.login-senha {
+  position: relative;
+}
+
+.field .login-senha input {
+  padding-right: 44px;
+}
+
+.login-olho {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  padding: 4px;
+  border: none;
+  background: none;
+  color: var(--text-muted, #8fb0b8);
+  cursor: pointer;
+}
+
+.login-olho:hover {
+  color: var(--teal-light, #2dd4bf);
+}
+
+/* Avisos (sucesso / erro) */
+.login-aviso {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+}
+
+.login-aviso-sucesso {
+  border: 1px solid var(--teal-light, #2dd4bf);
+  background: rgba(20, 184, 166, 0.12);
+  color: #7ee8dc;
+}
+
+.login-aviso-erro {
+  border: 1px solid #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  color: #f87171;
+}
+
+/* Caixa do modo demonstração (código mostrado na tela) */
+.login-demo {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border: 1px dashed #d6a93a;
+  border-radius: 10px;
+  background: rgba(214, 169, 58, 0.1);
+  color: #ecd28a;
+  font-size: 0.8rem;
+}
+
+/* Checklist dos requisitos da senha */
+.login-requisitos {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: -4px 0 18px;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted, #8fb0b8);
+  font-size: 0.8rem;
+}
+
+.login-req-ok {
+  color: #7ee8dc;
+}
+
+/* Dois links lado a lado no rodapé (reenviar código / trocar e-mail) */
+.login-footer-duplo {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Botão desativado enquanto carrega */
+.login-box .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
